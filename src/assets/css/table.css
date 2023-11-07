@@ -1,0 +1,24 @@
+table{
+    width: 510px;
+    height: 510px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border:none;
+
+    & td{
+        padding: 0;
+        margin: 0;
+        height: 17px;
+        width: 17px;
+        min-width: 17px;
+        min-height: 17px;
+        border:none;
+        background-color: #fff;
+        transition: all 0.3s ease;
+    }
+
+    & tr:nth-child(odd) td:nth-child(even),
+    & tr:nth-child(even) td:nth-child(odd){
+        background-color: #f6f6f6;
+    }
+}
