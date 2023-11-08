@@ -1,5 +1,4 @@
-// configure base path for production
-export default defineConfig({
+module.exports = {
   base: 'https://IPRIESPM.github.io/',
 
-});
+};
