@@ -12,6 +12,7 @@ window.onload = () => {
     },
     color: null,
     draw: false,
+    tool: 'pen',
   };
 
   const mainElement = document.querySelector('main');
@@ -20,5 +21,5 @@ window.onload = () => {
   createColorPallete(colorAside, appOptions);
 
   const toolsAside = document.querySelector('aside.tools');
-  createTools(toolsAside);
+  createTools(toolsAside, appOptions);
 };

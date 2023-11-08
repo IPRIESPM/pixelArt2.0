@@ -1,9 +1,17 @@
 /* eslint-disable no-param-reassign */
-const tableEvent = (appOptions, event) => {
+const drawCell = (appOptions, cell) => {
   if (appOptions.draw) {
-    if (event.target.tagName === 'TD') {
-      event.target.style.backgroundColor = appOptions.color;
-    }
+    cell.style.backgroundColor = appOptions.color;
+  }
+
+  if (appOptions.tool === 'eraser') {
+    cell.style.backgroundColor = '';
+  }
+};
+
+const tableEvent = (appOptions, event) => {
+  if (event.target.tagName === 'TD') {
+    drawCell(appOptions, event.target);
   }
 };
 
