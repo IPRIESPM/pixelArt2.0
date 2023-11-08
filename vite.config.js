@@ -1,4 +1,4 @@
 export default {
-  base: 'https://IPRIESPM.github.io/',
+  base: 'https://IPRIESPM.github.io/pixelArt2.0/',
 
 };
