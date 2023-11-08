@@ -15,7 +15,7 @@ const drawCell = (appOptions, cell) => {
     appOptions.draw = false;
   }
 
-  if (appOptions.draw && !appOptions.color) {
+  if (appOptions.draw && !appOptions.color && appOptions.tool !== 'eraser') {
     createAlert('Selecciona un color de tu izquierda, Melón');
     appOptions.draw = false;
   }
