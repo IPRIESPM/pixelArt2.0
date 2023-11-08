@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 const drawCell = (appOptions, cell) => {
-  if (appOptions.draw) {
+  if (appOptions.draw && appOptions.tool === 'pen') {
     cell.style.backgroundColor = appOptions.color;
   }
 
