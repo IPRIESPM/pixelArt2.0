@@ -1,3 +1,5 @@
+import createAlert from './alert';
+
 /* eslint-disable no-param-reassign */
 const drawCell = (appOptions, cell) => {
   if (appOptions.draw && appOptions.tool === 'pen') {
@@ -6,6 +8,16 @@ const drawCell = (appOptions, cell) => {
 
   if (appOptions.draw && appOptions.tool === 'eraser') {
     cell.style.backgroundColor = '';
+  }
+
+  if (appOptions.draw && !appOptions.tool) {
+    createAlert('Selecciona primero una herramienta, Melón');
+    appOptions.draw = false;
+  }
+
+  if (appOptions.draw && !appOptions.color) {
+    createAlert('Selecciona un color de tu izquierda, Melón');
+    appOptions.draw = false;
   }
 };
 
@@ -35,9 +47,7 @@ const createTable = (appOptions) => {
   const tableElement = document.createElement('table');
   tableElement.classList.add('table');
   tableElement.addEventListener('click', () => {
-    if (appOptions.color !== null) {
-      appOptions.draw = !appOptions.draw;
-    }
+    appOptions.draw = !appOptions.draw;
   });
 
   tableElement.addEventListener('mousemove', (event) => {

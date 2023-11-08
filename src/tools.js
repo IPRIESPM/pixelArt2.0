@@ -13,8 +13,10 @@ const clearCanvas = () => {
 };
 
 const resetTool = (appOptions) => {
-  appOptions.tool = '';
+  appOptions.tool = false;
   appOptions.draw = false;
+
+  console.table(appOptions);
 };
 
 const selectTool = (tool, appOptions) => {

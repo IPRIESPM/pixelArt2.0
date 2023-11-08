@@ -1,0 +1,32 @@
+div.alert{
+    position: fixed;
+    top: 50vh;
+    height: 100px;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.784);
+    color: white;
+    animation: alert 3s ease-in-out forwards;
+}
+
+@keyframes alert{
+    0%{
+        opacity: 0;
+    }
+    
+    10%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    90%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100%{
+
+        opacity: 0;
+    }
+}

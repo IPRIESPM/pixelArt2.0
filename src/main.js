@@ -4,6 +4,7 @@ import createTable from './table.js';
 import createColorPallete from './colorPallete.js';
 import createTools from './tools.js';
 import generateOptions from './options.js';
+import createAlert from './alert.js';
 
 window.onload = () => {
   const appOptions = {
@@ -15,8 +16,10 @@ window.onload = () => {
     draw: false,
     tool: 'pen',
   };
+
   const mainElement = document.querySelector('main');
   mainElement.appendChild(createTable(appOptions));
+  createAlert(false);
   const colorAside = document.querySelector('aside.color-pallete');
   createColorPallete(colorAside, appOptions);
 
