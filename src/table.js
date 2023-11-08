@@ -4,7 +4,7 @@ const drawCell = (appOptions, cell) => {
     cell.style.backgroundColor = appOptions.color;
   }
 
-  if (appOptions.tool === 'eraser') {
+  if (appOptions.draw && appOptions.tool === 'eraser') {
     cell.style.backgroundColor = '';
   }
 };
@@ -28,6 +28,10 @@ const generateRow = () => {
 };
 
 const createTable = (appOptions) => {
+  const bodyElement = document.querySelector('body');
+  if (bodyElement.querySelector('table')) {
+    bodyElement.querySelector('table').remove();
+  }
   const tableElement = document.createElement('table');
   tableElement.classList.add('table');
   tableElement.addEventListener('click', () => {

@@ -15,8 +15,6 @@ window.onload = () => {
     draw: false,
     tool: 'pen',
   };
-  const bodyElement = document.querySelector('body');
-
   const mainElement = document.querySelector('main');
   mainElement.appendChild(createTable(appOptions));
   const colorAside = document.querySelector('aside.color-pallete');
@@ -25,5 +23,5 @@ window.onload = () => {
   const toolsAside = document.querySelector('aside.tools');
   createTools(toolsAside, appOptions);
 
-  generateOptions(bodyElement, appOptions);
+  generateOptions(mainElement, appOptions);
 };

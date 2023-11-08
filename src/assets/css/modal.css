@@ -5,9 +5,85 @@ div.modal{
     place-items: center;
     width: 100vw;
     height: 100vh;
+    background-color: rgba(0 0 0 / 38%);
 
     & .modal-content{
         display: flex;
         flex-direction: column;
+        width: 400px;
+        height: max-content;
+
+        & .modal-header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0;
+            padding: 5px 15px;
+            background-color: purple;
+            color:#e4e4e4;
+            font-size: medium;
+        }
+
+        & .modal-body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px 10px;
+            gap: 10px;
+            margin-bottom: 10px;
+            background-color: #e4e4e4;
+            color: rgb(74 74 74);
+            font-size: medium;
+
+            & label{
+                text-transform: capitalize;
+            }
+            
+            & input{
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #fafafa;
+            }
+
+            & input:active, & input:focus{
+                outline: none;
+            }
+
+            & fieldset{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                padding: 0;
+                margin: 0;
+
+                & button{
+                    width: 100%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #fafafa;
+                    color:#404040;
+                    font-size: medium;
+                    cursor: pointer;
+                }
+
+                & div{
+                    width: 0;
+                    height: 1px;
+                    background-color: #404040;
+                    transition: width 0.3s ease-in-out;
+                    border-radius: 15px;
+                }
+
+                &:hover div{
+                    width: 100%;
+                    transition: width 0.3s ease-in-out;
+                }
+            }
+        }
     }
 }

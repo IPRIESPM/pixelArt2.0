@@ -5,11 +5,16 @@ const toolsList = [
   ['reset', 'bi bi-arrow-repeat'],
 ];
 
-const toolReset = () => {
+const clearCanvas = () => {
   const pixelElement = document.querySelectorAll('td.cell');
   pixelElement.forEach((pixel) => {
     pixel.style.backgroundColor = '';
   });
+};
+
+const resetTool = (appOptions) => {
+  appOptions.tool = '';
+  appOptions.draw = false;
 };
 
 const selectTool = (tool, appOptions) => {
@@ -17,6 +22,8 @@ const selectTool = (tool, appOptions) => {
   toolsElement.forEach((toolElement) => {
     toolElement.classList.remove('active');
   });
+
+  resetTool(appOptions);
   const toolName = tool.dataset.tool;
   tool.classList.add('active');
   appOptions.tool = toolName;
@@ -24,10 +31,11 @@ const selectTool = (tool, appOptions) => {
   if (toolName === 'reset') {
     setTimeout(() => {
       tool.classList.remove('active');
-      appOptions.tool = '';
-      appOptions.draw = null;
+      resetTool(appOptions);
     }, 100);
   }
+
+  console.table(appOptions);
 };
 
 const createTool = (option, appOptions) => {
@@ -37,7 +45,7 @@ const createTool = (option, appOptions) => {
   tool.dataset.tool = name;
   tool.addEventListener('click', (event) => {
     if (event.currentTarget.dataset.tool === 'reset') {
-      toolReset();
+      clearCanvas();
     }
     selectTool(event.currentTarget, appOptions);
   });
