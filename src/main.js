@@ -25,5 +25,5 @@ window.onload = () => {
   const toolsAside = document.querySelector('aside.tools');
   createTools(toolsAside, appOptions);
 
-  generateOptions(bodyElement);
+  generateOptions(bodyElement, appOptions);
 };
