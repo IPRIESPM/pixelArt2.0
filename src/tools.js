@@ -26,7 +26,6 @@ const selectTool = (tool, appOptions) => {
       tool.classList.remove('active');
       appOptions.tool = '';
       appOptions.draw = null;
-      console.log(appOptions);
     }, 100);
   }
 };
