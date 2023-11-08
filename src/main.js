@@ -3,6 +3,7 @@
 import createTable from './table.js';
 import createColorPallete from './colorPallete.js';
 import createTools from './tools.js';
+import generateOptions from './options.js';
 
 window.onload = () => {
   const appOptions = {
@@ -14,6 +15,7 @@ window.onload = () => {
     draw: false,
     tool: 'pen',
   };
+  const bodyElement = document.querySelector('body');
 
   const mainElement = document.querySelector('main');
   mainElement.appendChild(createTable(appOptions));
@@ -22,4 +24,6 @@ window.onload = () => {
 
   const toolsAside = document.querySelector('aside.tools');
   createTools(toolsAside, appOptions);
+
+  generateOptions(bodyElement);
 };
