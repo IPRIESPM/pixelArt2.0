@@ -5,6 +5,7 @@ import createColorPallete from './colorPallete.js';
 import createTools from './tools.js';
 import generateOptions from './options.js';
 import createAlert from './alert.js';
+import { generateCursor, updateCursor } from './cursor.js';
 
 window.onload = () => {
   const appOptions = {
@@ -16,7 +17,7 @@ window.onload = () => {
     draw: false,
     tool: 'pen',
   };
-
+  const bodyElement = document.querySelector('body');
   const mainElement = document.querySelector('main');
   mainElement.appendChild(createTable(appOptions));
   createAlert(false);
@@ -27,4 +28,7 @@ window.onload = () => {
   createTools(toolsAside, appOptions);
 
   generateOptions(mainElement, appOptions);
+
+  const cursor = generateCursor(bodyElement);
+  updateCursor(cursor, appOptions);
 };
