@@ -1,14 +1,13 @@
 /* eslint-disable no-param-reassign */
-const activateEraser = (cursor, appOptions) => {
-  cursor.style.opacity = appOptions.tool === 'eraser' ? 1 : 0.5;
-};
-
 const cursorActive = (cursor, appOptions) => {
   cursor.style.opacity = appOptions.draw ? 1 : 0.5;
 };
 
-const addColor = (cursor, appOptions) => {
+const addCursorColor = (cursor, appOptions) => {
   cursor.style.backgroundColor = appOptions.color;
+  if (appOptions.tool === 'eraser') {
+    cursor.style.backgroundColor = '';
+  }
 };
 
 const moveCursor = (cursor) => {
@@ -23,15 +22,14 @@ const moveCursor = (cursor) => {
 
 const updateCursor = (cursor, appOptions) => {
   moveCursor(cursor, appOptions);
-  addColor(cursor, appOptions);
+  addCursorColor(cursor, appOptions);
   cursorActive(cursor, appOptions);
 
   const element = cursor.parentElement;
   const cursorColor = cursor.querySelector('.cursor-color');
-  const cursorEraser = cursor.querySelector('.cursor-eraser');
   element.addEventListener('click', () => {
     cursorActive(cursor, appOptions);
-    addColor(cursorColor, appOptions);
+    addCursorColor(cursorColor, appOptions);
   });
 };
 
@@ -42,10 +40,6 @@ const generateCursor = (element) => {
   const cursorColor = document.createElement('div');
   cursorColor.classList.add('cursor-color');
   cursor.appendChild(cursorColor);
-
-  const cursorEraser = document.createElement('div');
-  cursorEraser.classList.add('cursor-eraser');
-  cursor.appendChild(cursorEraser);
 
   element.appendChild(cursor);
 
