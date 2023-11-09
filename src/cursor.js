@@ -11,6 +11,11 @@ const addCursorColor = (cursor, appOptions) => {
     cursor.style.backgroundColor = '';
   }
 
+  if (!appOptions.tool) {
+    cursor.style.backgroundColor = '';
+    cursor.style.border = 'none';
+  }
+
   if (appOptions.tool === 'pen') {
     cursor.style.border = 'none';
   }
