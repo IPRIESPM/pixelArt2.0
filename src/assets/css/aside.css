@@ -5,6 +5,39 @@ aside{
     grid-gap: 6.6px;
     justify-content: center;
     padding-top: 6.6px;
+    overflow: hidden;
+
+    &:hover{
+        overflow-y: auto;
+        scrollbar-color: #C8FF00 #C8FF00;
+        scrollbar-width: thin;
+        scrollbar-gutter: 6.6px;
+
+        &::-webkit-scrollbar {
+            width: 2px;
+            background-color: #C8FF00;
+
+            &:hover{
+                width: 2px;
+                background-color: #C8FF00;
+            }
+        }
+
+        &::-webkit-scrollbar-thumb{
+            background-color: #C8FF00;
+            width: 2px;
+
+            &:hover{
+                width: 2px;
+                background-color: #C8FF00;
+            }
+        }
+
+    }
+
+    &.tools:hover{
+        overflow-y: hidden;
+    }
 
     & div{
         display: grid;

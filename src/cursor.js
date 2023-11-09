@@ -5,8 +5,14 @@ const cursorActive = (cursor, appOptions) => {
 
 const addCursorColor = (cursor, appOptions) => {
   cursor.style.backgroundColor = appOptions.color;
+
   if (appOptions.tool === 'eraser') {
+    cursor.style.border = '1px solid black';
     cursor.style.backgroundColor = '';
+  }
+
+  if (appOptions.tool === 'pen') {
+    cursor.style.border = 'none';
   }
 };
 
@@ -22,8 +28,6 @@ const moveCursor = (cursor) => {
 
 const updateCursor = (cursor, appOptions) => {
   moveCursor(cursor, appOptions);
-  addCursorColor(cursor, appOptions);
-  cursorActive(cursor, appOptions);
 
   const element = cursor.parentElement;
   const cursorColor = cursor.querySelector('.cursor-color');

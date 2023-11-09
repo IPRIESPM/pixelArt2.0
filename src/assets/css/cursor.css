@@ -12,9 +12,9 @@ div.cursor{
         opacity: 0.5;
     }
 
-    & .cursor-eraser{
-        width: 100%;
-        height: 100%;
+    & .eraser{
+        background-color: none;
+        border: 1px solid rgba(0 0 0 0.674);
     }
 
     & .active{
