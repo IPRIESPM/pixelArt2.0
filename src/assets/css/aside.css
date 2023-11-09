@@ -7,11 +7,13 @@ aside{
     padding-top: 6.6px;
     overflow: hidden;
 
+
     &:hover{
         overflow-y: auto;
         scrollbar-color: #C8FF00 #C8FF00;
         scrollbar-width: thin;
         scrollbar-gutter: 6.6px;
+        padding-right: 6.6px;
 
         &::-webkit-scrollbar {
             width: 2px;
@@ -37,6 +39,7 @@ aside{
 
     &.tools:hover{
         overflow-y: hidden;
+        padding-right: 0;
     }
 
     & div{
