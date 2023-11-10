@@ -47,6 +47,10 @@ window.onload = () => {
   createAlert(false);
   createColorPallete(colorAside, appOptions);
 
+  /*
+    Creamos las herramientas y las opciones
+    y las añadimos al aside, correspondiente.
+  */
   const toolsAside = document.querySelector('aside.tools');
   createTools(toolsAside, appOptions);
 

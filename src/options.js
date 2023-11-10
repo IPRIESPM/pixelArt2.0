@@ -1,9 +1,16 @@
 /* eslint-disable no-param-reassign */
 import createTable from './table';
 
+/*
+  Con esta función generamos el modal
+  y lo añadimos al body.
+*/
 const generateModal = (bodyElement, appOptions) => {
+  // Creamos los elementos del modal
   const modalElement = document.createElement('div');
   modalElement.classList.add('modal');
+  // Añadimos el evento para cerrar el modal
+  // Esto tengo que pasarlo al main.
   modalElement.addEventListener('click', (event) => {
     if (event.target.classList.contains('bi-x-lg')) {
       modalElement.remove();
@@ -14,8 +21,16 @@ const generateModal = (bodyElement, appOptions) => {
     }
   });
 
+  // Creamos el contenido del modal
   const modalContent = document.createElement('div');
   modalContent.classList.add('modal-content');
+
+  /*
+    A partir de aquí creamos el contenido del modal
+    con estructura:
+    header.modal-header > span > i
+    div.modal-body > (label > input) * 2 + fieldset > button
+  */
 
   const modalTitle = document.createElement('header');
   modalTitle.classList.add('modal-header');
@@ -52,10 +67,12 @@ const generateModal = (bodyElement, appOptions) => {
   modalButton.addEventListener('click', () => {
     appOptions.resolution.x = modalInputX.value;
     appOptions.resolution.y = modalInputY.value;
-    console.table(appOptions);
+    /* console.table(appOptions); */
     createTable(appOptions);
     bodyElement.appendChild(createTable(appOptions));
   });
+
+  // Ahora añadimos los elementos al modal
   const bar = document.createElement('div');
   fieldsetElement.append(modalButton, bar);
   modalBody.append(labelXElement, modalInputX, labelYElement, modalInputY, fieldsetElement);
@@ -65,6 +82,10 @@ const generateModal = (bodyElement, appOptions) => {
   bodyElement.appendChild(modalElement);
 };
 
+/*
+  Con esta función generamos las opciones
+  y las añadimos al body.
+*/
 const generateOptions = (bodyElement, appOptions) => {
   const optionsContainer = document.createElement('div');
   optionsContainer.classList.add('options-container');
